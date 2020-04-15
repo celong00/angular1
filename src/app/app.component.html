@@ -19,7 +19,42 @@
 
 <br>
 
-<div>
-   {{ item.nama}}  -  {{item.harga}}
+<div *ngFor="let buah of item; let i=index" >
+   {{i+1}}.{{ buah.nama}}  -  {{buah.harga | currency:"Rp"}}
 
 </div>
+
+<div *ngFor="let data of itemArr">
+  {{data}}
+
+</div>
+
+<span *ngFor="let data of itemArr">
+  {{data}}
+
+</span>
+
+<p *ngIf="showtrue">Tampilkan jika Show = True</p>
+
+<p *ngIf="showfalse">Tampilkan jika Show = True</p>
+
+{{show}}
+<ng-template
+ *ngIf="show; then ShowBlock; else notShowBlock">
+ </ng-template>
+
+<ng-template #showBlock>
+<p>Show When show true</p>
+</ng-template>
+
+<ng-template #notShowBlock>
+<p>Show When show false</p>
+</ng-template>
+
+
+<input [(ngModel)] = user type="text"><p *ngIf="user">Halo {{user}} </p>
+
+<p>
+  <button (click)="klikButton()">Coba ditekan</button>
+  {{pesan}}
+</p>
